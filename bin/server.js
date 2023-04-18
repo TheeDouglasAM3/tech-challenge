@@ -31,8 +31,8 @@ const recursiveInterval = (
 ) => {
   intervalId = setInterval(() => {
     intervalId && clearInterval(intervalId);
-
-    skt.emit("market-data", {
+    console.log('searching...')
+    skt.broadcast.emit("market-data", {
       account_name: faker.finance.accountName(),
       transaction_type: faker.finance.transactionType(),
       transaction_description: faker.finance.transactionDescription(),
