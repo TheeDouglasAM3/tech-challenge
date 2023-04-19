@@ -28,7 +28,6 @@ export default function TablePage(){
           );
 
         socketIo.current.on("market-data", (data) => {
-            console.log('oi')
             setListClients(previousState => [...previousState, data])
         });
     
@@ -50,9 +49,10 @@ export default function TablePage(){
     return (
         <div>
             <Link to='/user'>usuario</Link>
-            <TextField id="outlined-basic" label="Filtro" variant="outlined" value={filter} onChange={(e) => setFilter(e.currentTarget.value)}/>
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <br />
+            <TextField id="outlined-basic" label="Filtro" variant="outlined" value={filter} onChange={(e) => setFilter(e.currentTarget.value)} style={{ background: 'white', marginTop: '1rem' }}/>
+            <TableContainer component={Paper} sx={{ minWidth: 650 }}>
+                <Table  aria-label="simple table">
                     <TableHead>
                     <TableRow>
                         <TableCell>Account Name</TableCell>
